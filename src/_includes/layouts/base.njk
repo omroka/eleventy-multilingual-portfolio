@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="{{ page.lang }}" dir="{{ languages[page.lang].dir or 'ltr' }}">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>{{ title }}</title>
+		<meta name="description" content="{{ description or meta.description }}">
+        <link rel="manifest" href="/manifest.webmanifest">
+        <link rel="icon" href="/favicon.ico" sizes="32x32">
+        <link rel="icon" href="/icon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png"><!-- 180×180 -->
+        <link rel="manifest" href="/manifest.webmanifest">
+		{#- Atom and JSON feeds included by default #}
+		{# <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
+		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}"> #}
+
+        <meta name="generator" content="{{ eleventy.generator }}">
+
+        <link rel="stylesheet" href="/css/main.css">
+
+        {# The hreflang attribute indicates which language the linked resource is in #}
+        <link rel="alternate" hreflang="{{ page.lang }}" href="{{ meta.url }}{{ page.url }}">
+        {% for link in page.url | locale_links %}
+        <link rel="alternate" hreflang="{{ link.lang }}" href="{{ meta.url }}{{ link.url }}"/>
+        {% endfor %}
+        <link rel="canonical" href="{{ meta.url }}{{ page.url }}">
+
+        <meta property="og:site_name" content="{{ meta.siteName }}" />
+        <meta property="og:title" content="{{ title }} | {{ meta.siteName }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="{{ description or meta.siteDescription }}" />
+        <meta property="og:url" content="{{ meta.url }}{{ page.url }}" />
+        <meta property="og:locale" content="{{ page.lang }}" />
+        <meta property="og:image" content="{{ meta.url }}{{ meta.ogImage }}" />
+
+        {# Delete if you don't use an analytics solution #}
+        {% include "analytics.njk" %}
+	</head>
+	<body>
+        {% include "layouts/main-header.njk" %}
+
+        <main id="#main">
+            {{ content | safe }}
+          
+            {% include "layouts/footer.njk" %}
+        </main>
+
+        {% include "layouts/main-footer.njk" %}
+
+	</body>
+</html>

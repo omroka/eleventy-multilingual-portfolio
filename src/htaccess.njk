@@ -1,0 +1,23 @@
+---
+permalink: /.htaccess
+---
+
+RewriteEngine On
+
+# Redirect to French version if user's preferred language is French and the URL is non-existent
+RewriteCond %{HTTP:Accept-Language} ^fr [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^$ /fr/404.html [L,R=301]
+
+# Redirect to English version by default if the URL is non-existent
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^$ /en/404.html [L,R=301]
+
+# Redirect to French version if user's preferred language is French when accessing root URL
+RewriteCond %{HTTP:Accept-Language} ^fr [NC]
+RewriteRule ^$ /fr/ [L,R=301]
+
+# Redirect to English version by default when accessing root URL
+RewriteRule ^$ /en/ [L,R=301]

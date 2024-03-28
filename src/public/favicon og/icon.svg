@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16" height="16" version="1.1" viewBox="0 0 4.2333 4.2333" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <rect width="4.2333" height="4.2333" fill="#6a6a6a" stroke-miterlimit="2" stroke-width=".52917" style="paint-order:stroke fill markers"/>
+ <rect id="rect49" width="1.0583" height="1.0583" fill="#cfcfcf" stroke-miterlimit="2" stroke-width=".52917" style="paint-order:stroke fill markers"/>
+ <use transform="translate(0 2.1167)" xlink:href="#rect49"/>
+ <use transform="translate(2.1167)" xlink:href="#rect49"/>
+ <use transform="translate(2.1167 2.1167)" xlink:href="#rect49"/>
+ <use transform="translate(1.0583 1.0583)" xlink:href="#rect49"/>
+ <use transform="translate(3.175 1.0583)" xlink:href="#rect49"/>
+ <use transform="translate(3.175 3.175)" xlink:href="#rect49"/>
+ <use transform="translate(1.0583 3.175)" xlink:href="#rect49"/>
+</svg>

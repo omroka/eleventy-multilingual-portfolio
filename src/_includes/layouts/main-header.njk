@@ -1,0 +1,12 @@
+{% set activePage = page.url %}
+
+<a href="#main" class="skip-link">{{ languages[page.lang].skipText }}</a>
+
+<header>
+  <nav aria-label="{{ languages[page.lang].ariaPrimary }}">
+      {% for item in navigation[page.lang] %}
+        <a href="{{ item.url }}" {{ helpers.getLinkActiveState(item.url, page.url) | safe }}>{{ item.text }}</a>
+      {% endfor %}
+      {# add any other navigation link here with a <li> #}
+  </nav>
+</header>

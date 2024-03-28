@@ -1,0 +1,403 @@
+/* TEST ZONE */
+    @font-face {
+    font-family: 'YourFontName';
+    font-weight: 400 900;
+    font-display: swap;
+    font-style: normal;
+    font-named-instance: 'Regular';
+    src: local('YourFontName'), url(/fonts/YourFontName.woff2), format("woff2");
+}
+
+
+/* Classless CSS by Omroka */
+:root {
+    --font-family: 'YourFontName', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,'Apple Color Emoji','Segoe UI Emoji', 'Segoe UI Symbol';
+    --font-family-mono: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    --font-weight: 500;
+    --border-radius: 0.625rem;
+
+    --spacing-vertical: 0.5rem;
+    --spacing-horizontal: 0.5rem;
+    
+    --font-size-base: 20px;
+    font-feature-settings: 'liga' 1, 'calt' 1, 'zero', 'tnum', 'ss02', ; /* fix for Chrome */
+
+    --color-50: oklch(98.93% 0 0);
+    --color-100: oklch(96.48% 0 0);
+    --color-200: oklch(91.8% 0 0);
+    --color-300: oklch(85.35% 0 0);
+    --color-700: oklch(52.34% 0 0);
+    --color-900: oklch(30.08% 0 0);
+    --color-950: oklch(19.34% 0 0);
+}
+@supports (font-variation-settings: normal) {
+    :root { font-family: 'YourFontName', sans-serif; }
+}
+
+@media (prefers-color-scheme: light) {
+    :root:not([data-theme=dark]) {
+        --background-color: var(--color-50);
+        --background-code-color: var(--color-100);
+        --heading-color: var(--color-950);
+        --text-color: var(--color-900);
+        --link-focus-hover-color: oklch(52.34% 0.116 260);
+        --link-active-color: oklch(74.41% 0.152 340);        
+        --stroke-color: var(--color-300);
+    }
+}
+@media only screen and (prefers-color-scheme: dark) {
+    :root:not([data-theme]) { /* revoir ça peut être */
+        --background-color: var(--color-950);
+        --background-code-color: var(--color-900);
+        --heading-color: var(--color-50);
+        --text-color: var(--color-100);
+        --link-focus-hover-color: oklch(85.35% 0.078 260);
+        --link-active-color: oklch(74.41% 0.152 340);        
+        --stroke-color: var(--color-700);
+    }
+}
+
+*, /* all elements */
+::before,
+::after { /* pseudo elements you can set before or after another */
+	box-sizing: border-box; /* normalize: better box model */
+    margin: 0;
+}
+
+html {
+    font-size: var(--font-size-base);
+    line-height: 1.15; /* normalize */
+    -webkit-text-size-adjust: 100%; /* Prevent changes in font size after orientation changes */
+	-moz-tab-size: 4; /*  More readable tab size */
+	tab-size: 4; /* same */
+}
+
+body {
+    width: 100%;
+    /* padding: calc(2 * var(--spacing-vertical)) var(--spacing-horizontal) 1rem; a changer ou confirmer*/
+    min-height: 100vh;
+    font-weight: var(--font-weight);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    line-height: 1.25;
+    overflow-wrap: break-word;
+    /* word-break: break-word; */
+    word-break: keep-all;
+    /* hyphens: auto; */
+}
+
+body > header,
+body > main,
+body > footer {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: var(--spacing-vertical) var(--spacing-horizontal);
+}
+
+body > header {
+    /* width: 100%; */
+    position: fixed;
+    top: 0;
+    z-index: 3;
+    background-color: var(--background-color);
+    /* border-bottom: 1px solid var(--stroke-color); */
+    /* color: white;
+    mix-blend-mode: difference; */
+}
+
+main {
+    margin: 56px 0; /* revoir ce calcul par rapport à la taille des header et footer */
+
+}
+
+body > footer {
+    position: fixed;
+    bottom: 0;
+    z-index: 3;
+    background-color: var(--background-color);
+    /* color: white;
+    mix-blend-mode: difference; */
+        
+    padding-top: var(--spacing-vertical);
+    /* border-top: 1px solid var(--stroke-color); */
+}
+
+footer {
+    margin-top: auto;
+}
+
+section {
+    margin: clamp(2rem, -0.0632rem + 8.4211vw, 6rem) 0;
+}
+
+p, code, blockquote, pre, h1, h2, h3, h4, h5, h6 {
+    max-width: 60rem;
+    /* margin: 0 auto; */
+}
+
+/* body { /* peut etre il faut changer ça et lister tous les éléments pour éviter d'avoir un espace de 1rem après une div
+    margin-bottom: var(--spacing-vertical);
+} */
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1; /* à voir si il ne faut pas changer à nouveau pour 1.2 pour les plus petits titres */
+    font-weight: 400;
+    color: var(--heading-color);
+    margin-top: 1rem;
+}
+
+h1 {
+    font-size: clamp(2.4rem, 1.0589rem + 5.4737vw, 5rem);
+    /* font-size: clamp(2.4rem, -0.5714rem + 7.7381vw, 5rem); */
+    letter-spacing: -0.03em;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 1.2842rem + 2.1053vw, 2.8rem);
+    /* font-size: clamp(2.5rem, -1.25rem + 7.8125vw, 5rem); */
+    letter-spacing: -0.022em;
+}
+
+h3 {
+    font-size: clamp(1.4rem, 1.0905rem + 1.2632vw, 2rem);
+    /* font-size: clamp(2rem, -0.25rem + 4.6875vw, 3.5rem); */
+    letter-spacing: -0.022em;
+}
+
+h4 {
+    font-size: clamp(1.2rem, 0.9937rem + 0.8421vw, 1.6rem);
+    /* font-size: clamp(1.5rem, 0rem + 3.125vw, 2.5rem); */
+    letter-spacing: -0.02em;
+}
+
+h5 {
+    /* font-size: clamp(1.25rem, 0.575rem + 1.4062vw, 1.7rem); */
+    letter-spacing: -0.019em;
+}
+
+h5, h6, p {
+    font-size: clamp(1rem, 0.8968rem + 0.4211vw, 1.2rem);
+    /* font-size: clamp(var(--font-size-base), 0.625rem + 0.7813vw, 1rem); */
+    letter-spacing: -0.012em;
+}
+
+p {
+    margin: 0;
+    margin-top: 1rem;
+    /* max-width: 60ch; */
+}
+
+p:empty {
+    display: none; /* avoid empty p from .md to .html conversions */
+}
+
+b, strong {
+    font-weight: bolder; /* normalize */
+}
+
+small {
+	font-size: 80%;
+}
+
+code,
+kbd,
+samp,
+pre {
+    font-family: var(--font-family-mono);
+    font-weight: 500;
+    font-size: 0.9em; /* avoid overlapping code blocks */
+    hyphens: none;
+}
+
+pre > code {
+    display: block; /* allow code elements to 'merge' together */
+    padding: 1rem;
+    overflow-x: auto; /* scrollable horizontally to avoid word wrapping */
+    overscroll-behavior-x: contain; /* avoid continuous scroll behavior */
+}
+
+pre {
+    margin-top: 1rem;
+}
+
+code {
+    background-color: var(--background-code-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 0.25rem;
+    padding: 0.05rem 0.25rem;
+    tab-size: 2; /* marche pas, à modifier */
+}
+
+kbd {
+    border: 1px solid var(--stroke-color);
+    border-radius: .25rem;
+    padding: .125rem .5rem;
+    box-shadow: 0 2px var(--stroke-color);
+}
+
+abbr[title] {
+	text-decoration: underline dotted; /* normalize */
+}
+
+sub,
+sup {
+	font-size: 75%; /* all rules are here to normalize */
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -0.25em; /* normalize */
+}
+
+sup {
+	top: -0.5em; /* normalize */
+}
+
+:is(body > header, body > footer) :is(a, p, li){
+    font-size: clamp(1.4rem, 1.0905rem + 1.2632vw, 2rem);
+    /* font-size: clamp(1.5rem, 0rem + 3.125vw, 2.5rem); */
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    line-height: 1;
+}
+
+::selection {
+    color: var(--background-color);
+    background-color: var(--text-color);
+  }
+
+table {
+	text-indent: 0; /* normalize */
+	border-color: inherit; /* same */
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--stroke-color);
+    /* margin-top: 0.5rem;
+    margin-bottom: 0; */
+    margin-top: 0.5rem;
+}
+
+body > div + img {
+    margin-top: 0.5rem;
+}
+  
+div {
+    display: grid;
+       gap: var(--spacing-horizontal);
+       grid-template-columns: repeat(auto-fit,minmax(0%, 1fr));
+       margin-top: 1rem;
+}
+ 
+div picture, div img {
+    margin-top: 0;
+}
+
+:is(body, main) > :is(img + div, div + div, div + img, img + img)  {
+    margin-top: 0.5rem;
+}
+
+div > * {
+    margin-top: 0;
+}
+
+hr {
+    height: 0;
+    width: 100%;
+    margin: 2rem 0;
+    border: 0;
+    border-top: 1px solid var(--stroke-color);
+    color: inherit; /* normalize */
+}
+
+article {
+    background-color: wheat;
+    border-radius: var(--border-radius);
+}
+
+aside {
+    padding:  0 1rem 1rem 1rem;
+    border-radius: var(--border-radius);
+    background-color: var(--background-code-color);
+}
+
+a {
+    outline-color: transparent;
+    hyphens: none;
+}
+  
+a:link {
+    color: var(--text-color);
+    text-underline-offset: 0.1em;
+    text-decoration-thickness: 2px;
+}
+
+a:visited {
+    color: var(--text-color);
+}
+
+a:focus {
+    color: var(--link-focus-hover-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-focus-hover-color);
+    text-decoration: none;
+}
+
+a:active {
+    color: var(--link-active-color);
+}
+
+summary {
+	display: list-item;
+}
+
+:is(header, footer, h1, h2, h3, h4, h5, h6) a, :has(h1, h2, h3, h4, h5, h6, p, time, picture, img) {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+body > header > nav, body > footer > nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+body > header > nav *, body > footer > nav *{
+    margin-top: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+  
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li:not(:first-child) {
+    padding-left: 0.5rem;
+}
+  
+  /* doesn't look satisfying for now
+  nav [aria-current="page"] {
+    font-weight: bold;
+  } */
+
+li {
+    font-size: 24px;
+}
