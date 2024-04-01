@@ -18,6 +18,7 @@
 
     --spacing-vertical: 0.5rem;
     --spacing-horizontal: 0.5rem;
+    --content-max-width: 120ch;
     
     --font-size-base: 20px;
     font-feature-settings: 'liga' 1, 'calt' 1, 'zero', 'tnum', 'ss02', ; /* fix for Chrome */
@@ -72,8 +73,9 @@ html {
 	tab-size: 4; /* same */
 }
 
-body {
-    width: 100%;
+body {  
+    max-width: var(--content-max-width);
+    margin: 0 auto;
     /* padding: calc(2 * var(--spacing-vertical)) var(--spacing-horizontal) 1rem; a changer ou confirmer*/
     min-height: 100vh;
     font-weight: var(--font-weight);
@@ -91,6 +93,7 @@ body > header,
 body > main,
 body > footer {
   width: 100%;
+  max-width: var(--content-max-width);
   margin-right: auto;
   margin-left: auto;
   padding: var(--spacing-vertical) var(--spacing-horizontal);
@@ -109,7 +112,6 @@ body > header {
 
 main {
     margin: 56px 0; /* revoir ce calcul par rapport à la taille des header et footer */
-
 }
 
 body > footer {
