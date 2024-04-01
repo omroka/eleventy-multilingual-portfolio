@@ -4,22 +4,21 @@ description: "All my projects"
 date: Last Modified
 layout: layouts/base.njk
 ---
-
-    {# remove the head filter to list every project in the collection #}
-{% set projects = collections.project | reverse %}
-
-{% for chunk in projects | chunk(2) %}
-  <div>
-    {% for project in chunk %}
-        <a href="{{ project.url }}">
-          {% first_image project %}
-        </a>
-        {# <p>
-          <time datetime="{{ project.date | htmlDateString }}">{{ project.date | readableDate("yyyy") }}</time> - 
-          {{ project.data.title }}
-        </p> #}
-    {% endfor %}
-  </div>
+{% for project in collections.project | byLang | reverse %}
+    {# <h2>{{ project.data.title }}</h2> #}
+    <a href="{{ project.url }}">
+      {% first_image project %}
+    </a>
 {% endfor %}
-    {# uncomment the following line to also display the page description of the project#}
-    {# <p>{{ project.data.description}}</p> #}
+
+{# Could not make this work: should split projects 2 by 2 in divs #}
+  {# {% for chunk in projects | chunk(2) %}
+    <div>
+      {% for project in chunk %}
+          <a href="{{ project.url }}">
+            {% first_image project %}
+          </a>
+      {% endfor %}
+    </div>
+    
+  {% endfor %} #}

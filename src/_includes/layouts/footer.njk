@@ -17,7 +17,7 @@
 <footer>
   <p>{{ languages[page.lang].availableText }}</p> 
   <nav id="footer" aria-label="{{ languages[page.lang].ariaLang }}"> 
-    {% for link in page.url | log | locale_links %} {%- if not loop.first %}/{% endif %}
+    {% for link in page.url | locale_links %} {%- if not loop.first %}/{% endif %}
 
     <a href="{{ link.url }}" lang="{{ link.lang }}" hreflang="{{ link.lang }}">{{ link.label }}</a>
 

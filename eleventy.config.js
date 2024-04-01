@@ -64,6 +64,12 @@ module.exports = function(eleventyConfig) {
       return result;
     });
 
+    eleventyConfig.addFilter('byLang', function(collection, lang = this.page.lang) {
+      return collection.filter(item => {
+        return item.data.page.lang === lang;
+      });
+    });
+
     //Extract first image from projects pages in order to display them as thumbnails on the main page of the website or elsewhere
     eleventyConfig.addShortcode('first_image', post => extractFirstImage(post));
 
