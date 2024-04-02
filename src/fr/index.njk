@@ -13,7 +13,7 @@ numberOfLatestPostsToShow: 3
 </p>
 
     {# remove the head filter to list every project in the collection #}
-    {%- for project in collections.project | head(-1 * numberOfLatestPostsToShow) | reverse %}
+    {%- for project in collections.project | byLang | head(-1 * numberOfLatestPostsToShow) | reverse %}
     <section>
     <a href="{{ project.url }}">
       {% first_image project %}
