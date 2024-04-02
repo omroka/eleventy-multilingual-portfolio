@@ -1,3 +1,21 @@
+{% if page.url | locale_links | log | length > 0 %}
+  <nav id="footer" aria-label="{{ languages[page.lang].ariaLang }}">
+    {% for link in page.url | locale_links %} {%- if not loop.first %}/{% endif %}
+    <p>
+      {{ languages[page.lang].availableText }}
+      <a href="{{ link.url }}" lang="{{ link.lang }}" hreflang="{{ link.lang }}">{{ link.label }}</a>
+    </p>
+    {% endfor %}
+  </nav>
+{% endif %}
+<nav>
+  <p>
+    Follow me on
+    <a href="#">Twitter</a> or
+    <a href="#">Linkedin</a>
+  </p>
+</nav>
+{# alternative footer #}
 {# <footer>
   <nav id="footer" aria-label="{{ languages[page.lang].ariaLang }}">
     <a href="{{ page.url }}" lang="{{ page.lang }}" hreflang="{{ page.lang }}">
@@ -11,27 +29,3 @@
     {% endfor %}
   </nav>
 </footer> #}
-
-{# alternative footer #}
-<hr>
-<footer>
-  <p>{{ languages[page.lang].availableText }}</p> 
-  <nav id="footer" aria-label="{{ languages[page.lang].ariaLang }}"> 
-    {% for link in page.url | locale_links %} {%- if not loop.first %}/{% endif %}
-
-    <a href="{{ link.url }}" lang="{{ link.lang }}" hreflang="{{ link.lang }}">{{ link.label }}</a>
-
-    {# <a href="{{ link.url }}" lang="{{ link.lang }}" hreflang="{{ link.lang }}">{{ link.label }}</a> #}
-    {% endfor %}
-    <nav>
-      <ul>
-        <li>
-          <a href="#">Twitter</a>
-        </li>
-        <li>
-          <a href="#">Linkedin</a>
-        </li>
-      </ul>
-    </nav>
-  </nav>
-</footer>

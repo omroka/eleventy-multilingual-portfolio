@@ -2,14 +2,12 @@
 layout: layouts/base.njk
 ---
 {{ content | safe }}
-
-<section>
-	{%- if collections.project %}
-	{%- set previousPost = collections.project | getPreviousCollectionItem %}
-	{%- set nextPost = collections.project | getNextCollectionItem %}
+<hr>
+{%- if collections.project %}
+{%- set previousPost = collections.project | getPreviousCollectionItem %}
+{%- set nextPost = collections.project | getNextCollectionItem %}
 	{%- if nextPost or previousPost %}
-			{%- if previousPost %}<p>Previous project: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></p>{% endif %}
-			{%- if nextPost %}<p>Next project: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></p>{% endif %}
+		{%- if previousPost %}<p>Previous project: <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></p>{% endif %}
+		{%- if nextPost %}<p>Next project: <a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></p>{% endif %}
 	{%- endif %}
-	{%- endif %}
-</section>
+{%- endif %}
