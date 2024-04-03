@@ -1,4 +1,9 @@
-# README
+<picture>
+    <source srcset="assets/home-template-dark.png" media="(prefers-color-scheme: dark)">
+    <img src="assets/home-template.png">
+</picture>
+
+# Eleventy Multilingual Portfolio (Beta)
 
 This template is for people with little coding experience who still want an affordable, manageable and very performant portfolio and/or blog website (unlike no-code tools). It aims for simplicity yet up-to-date best practices in term of accessibility, SEO, UI, speed and so on. It will be further updated with corrections and features based on feedbacks. It use the [Eleventy](https://www.11ty.dev/) site generator.
 
