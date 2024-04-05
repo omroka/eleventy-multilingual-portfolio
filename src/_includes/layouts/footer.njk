@@ -1,4 +1,4 @@
-{% if page.url | locale_links | log | length > 0 %}
+{% if page.url | locale_links | length > 0 %}
   <nav id="footer" aria-label="{{ languages[page.lang].ariaLang }}">
     {% for link in page.url | locale_links %} {%- if not loop.first %}/{% endif %}
     <p>
