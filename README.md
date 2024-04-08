@@ -1,6 +1,6 @@
 <picture>
-    <source srcset="assets/home-template-dark.png" media="(prefers-color-scheme: dark)">
-    <img src="assets/home-template.png">
+    <source style="border: 1px solid #30363d;" srcset="assets/home-template-dark.png" media="(prefers-color-scheme: dark)">
+    <img style="border: 1px solid #d0d7de" src="assets/home-template.png">
 </picture>
 
 # Eleventy Multilingual Portfolio (Beta)
@@ -15,7 +15,8 @@ A complete list of the features is available below, but mainly it offers an simp
 - [Features](#features)
 - [Getting started](#getting-started)
 - [Config](#config)
-- [Implementation notes](#implementation-notes)
+- [First configuration](#first-configuration)
+- [Documentation](#documentation)
 - [Get help](#get-help)
 - [Roadmap](#roadmap)
 
@@ -95,20 +96,20 @@ Generate a ready-to-publish build to the `dist` folder:
 npm run build
 ```
 
-## Config
+## First configuration
 
-- Replaces the images in `src/public/favicon og/`. The og image is the default link preview when you share your website on social medias etc. Favicons and icons are for browsers' tabs, bookmarks etc. You can follow [this "how to" on favicons](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)
 - Change `src/_data/languages/` depending on your website languages
+- Replaces the images in `src/public/favicon og/`. The og image is the default link preview when you share your website on social medias etc. Favicons and icons are for browsers' tabs, bookmarks etc. You can follow [this "how to" on favicons](https://evilmartians.com/chronicles/how-to-favicon-in-2021-six-files-that-fit-most-needs)
 - `.htaccess` file is used for redirects to the correct language. Change its content based on your website languages.
 - to change the typeface: drop your font (.woff or .woff2) in `src/public/fonts/`. Then search and replace "YourFontName" in `src/public/css` by the name of the font. Verify that line 8 the url is matching with the file name, because it may not be the case.
 
-## Implementation Notes
+## Documentation
 
-There will be an explanation of every file here
+There will be an explanation of every file here.
 
 ## Get help
 
-This project is maintained by me, [@omroka](https://github.com/omroka). Feel free to reach me out, on Twitter, Discord or via the email displayed on my website.
+This project is maintained by me, [@omroka](https://github.com/omroka). Feel free to reach me out, on Twitter, Discord or via the email displayed on [my website](https://omroka.com).
 
 ## Roadmap
 
