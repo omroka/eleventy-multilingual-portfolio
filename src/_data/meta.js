@@ -3,6 +3,6 @@ module.exports = {
     url: process.env.URL || 'YourSiteUrl', //for absolut urls
     siteName: 'YourSiteName',
     siteDescription:
-      "YourWebsiteDefaultDescription",
+      'YourWebsiteDefaultDescription',
     ogImage: '/opengraph.png'
   };
