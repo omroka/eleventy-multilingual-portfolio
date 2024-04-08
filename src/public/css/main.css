@@ -16,9 +16,10 @@
     --font-weight: 500;
     --border-radius: 0.625rem;
 
-    --spacing-vertical: 0.5rem;
+    --spacing-vertical: clamp(2rem, -0.0632rem + 8.4211vw, 6rem);
     --spacing-horizontal: 0.5rem;
     --content-max-width: 120ch;
+    --text-max-width: var(--content-max-width);
     
     --font-size-base: 20px;
     font-feature-settings: 'liga' 1, 'calt' 1, 'zero', 'tnum', 'ss02', ; /* fix for Chrome */
@@ -82,7 +83,7 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: var(--font-family);
-    line-height: 1.25;
+    line-height: 1.5;
     overflow-wrap: break-word;
     /* word-break: break-word; */
     word-break: keep-all;
@@ -96,7 +97,7 @@ body > footer {
   max-width: var(--content-max-width);
   margin-right: auto;
   margin-left: auto;
-  padding: var(--spacing-vertical) var(--spacing-horizontal);
+  padding: 0.5rem var(--spacing-horizontal);
 }
 
 body > header {
@@ -111,7 +112,7 @@ body > header {
 }
 
 main {
-    margin: 56px 0; /* revoir ce calcul par rapport à la taille des header et footer */
+    margin: var(--spacing-vertical) 0; /* revoir ce calcul par rapport à la taille des header et footer */
 }
 
 body > footer {
@@ -122,7 +123,7 @@ body > footer {
     /* color: white;
     mix-blend-mode: difference; */
         
-    padding-top: var(--spacing-vertical);
+    /* padding-top: var(--spacing-vertical); */
     /* border-top: 1px solid var(--stroke-color); */
 }
 
@@ -131,11 +132,11 @@ footer {
 }
 
 section {
-    margin: clamp(2rem, -0.0632rem + 8.4211vw, 6rem) 0;
+    margin: var(--spacing-vertical) 0;
 }
 
 p, code, blockquote, pre, h1, h2, h3, h4, h5, h6 {
-    max-width: 60rem;
+    max-width: var(--text-max-width);
     /* margin: 0 auto; */
 }
 
@@ -153,7 +154,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-size: clamp(2.4rem, 1.0589rem + 5.4737vw, 5rem);
     /* font-size: clamp(2.4rem, -0.5714rem + 7.7381vw, 5rem); */
-    letter-spacing: -0.03em;
+    /* letter-spacing: -0.03em; */
     margin-top: 4rem;
     margin-bottom: 2rem;
 }
@@ -161,30 +162,25 @@ h1 {
 h2 {
     font-size: clamp(1.8rem, 1.2842rem + 2.1053vw, 2.8rem);
     /* font-size: clamp(2.5rem, -1.25rem + 7.8125vw, 5rem); */
-    letter-spacing: -0.022em;
+    /* letter-spacing: -0.022em; */
 }
 
 h3 {
     font-size: clamp(1.4rem, 1.0905rem + 1.2632vw, 2rem);
     /* font-size: clamp(2rem, -0.25rem + 4.6875vw, 3.5rem); */
-    letter-spacing: -0.022em;
+    /* letter-spacing: -0.022em; */
 }
 
 h4 {
     font-size: clamp(1.2rem, 0.9937rem + 0.8421vw, 1.6rem);
     /* font-size: clamp(1.5rem, 0rem + 3.125vw, 2.5rem); */
-    letter-spacing: -0.02em;
-}
-
-h5 {
-    /* font-size: clamp(1.25rem, 0.575rem + 1.4062vw, 1.7rem); */
-    letter-spacing: -0.019em;
+    /* letter-spacing: -0.02em; */
 }
 
 h5, h6, p {
     font-size: clamp(1rem, 0.8968rem + 0.4211vw, 1.2rem);
     /* font-size: clamp(var(--font-size-base), 0.625rem + 0.7813vw, 1rem); */
-    letter-spacing: -0.012em;
+    /* letter-spacing: -0.012em; */
 }
 
 p {
@@ -264,7 +260,7 @@ sup {
 :is(body > header, body > footer) :is(a, p, li){
     font-size: clamp(1.4rem, 1.0905rem + 1.2632vw, 2rem);
     /* font-size: clamp(1.5rem, 0rem + 3.125vw, 2.5rem); */
-    letter-spacing: -0.02em;
+    /* letter-spacing: -0.02em; */
     font-weight: 600;
     line-height: 1;
 }
