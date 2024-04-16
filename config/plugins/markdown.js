@@ -1,7 +1,5 @@
 const markdownIt = require('markdown-it');
 const markdownItLinkAttributes = require('markdown-it-link-attributes');
-const markdownItAnchor = require('markdown-it-anchor');
-
 const markdownLib = markdownIt({
     html: true,
     breaks: true,
@@ -18,14 +16,7 @@ const markdownLib = markdownIt({
         rel: 'noopener'
       }
     }
-  ])
-  .use(markdownItAnchor, {
-    tabIndex: false,
-    slugify,
-    permalink: markdownItAnchor.permalink.headerLink({
-      class: 'heading-anchor'
-    })
-  });
+  ]);
 
   module.exports = markdownLib;
 
